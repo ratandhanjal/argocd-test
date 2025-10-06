@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application-directory
+spec:
+  destination: 
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+          #    directory:
+          #      exclude: 'service.yml'
+          #      include: '{serviceaccount.yml,service.yml}'
+          #      recurse: true
+    path: .
+    repoURL: https://github.com/ratandhanjal/argocd-test
+    targetRevision: master
